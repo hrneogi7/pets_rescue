@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Email, EqualTo
 
 class SignUpForm(FlaskForm):
-    full_name = StringField('Full Name', validators = [InputRequired()])
+    full_name = StringField('Full Name')
     email = StringField('Email',
                         validators = [InputRequired(), Email()])
     password = PasswordField('Password', validators = [InputRequired()])
@@ -16,3 +16,9 @@ class LoginForm(FlaskForm):
                         validators = [InputRequired(), Email()])
     password = PasswordField('Password', validators = [InputRequired()])
     submit = SubmitField('Login')
+
+class EditPetForm(FlaskForm):
+    name = StringField("Pet's Name", validators = [InputRequired()])
+    age = StringField("Pet's Age", validators = [InputRequired()])
+    bio = StringField("Pet's Bio", validators = [InputRequired()])
+    submit = SubmitField("Edit Pet")
